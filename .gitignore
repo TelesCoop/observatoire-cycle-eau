@@ -1,0 +1,9 @@
+*.sqlite3
+__pycache__
+*.pyc
+.idea
+node_modules
+local_settings.conf
+_private
+backup.sqlite
+.telescoop_backup_last_backup
