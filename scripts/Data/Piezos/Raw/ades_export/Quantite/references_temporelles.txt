@@ -1,0 +1,1 @@
+Identifiant national BSS|Ancien code national BSS|Date début|Date fin|Code référence temporelle|Référence temporelle|X_WGS84|Y_WGS84|

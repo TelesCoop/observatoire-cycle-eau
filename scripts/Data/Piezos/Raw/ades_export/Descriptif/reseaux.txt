@@ -1,0 +1,1 @@
+Identifiant national BSS|Ancien code national BSS|Code SANDRE réseau|Date de début|Date de fin|Nom réseau

@@ -1,21 +1,35 @@
-"""observatoire URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 
+from observatoire.views.donnees_meteo import DonneesMeteoListView
+from observatoire.views.station_meteo import (
+    StationMeteoDetailView,
+    StationMeteoListView,
+    StationMeteoOuvertesListView,
+)
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    # --- Stations météo ---
+    # Liste toutes les stations (filtres optionnels : ?departement=17&poste_ouvert=true)
+    path("api/stations/", StationMeteoListView.as_view(), name="station-list"),
+    # Liste uniquement les stations ouvertes (posteOuvert=True)
+    path(
+        "api/stations/ouvertes/",
+        StationMeteoOuvertesListView.as_view(),
+        name="station-ouvertes-list",
+    ),
+    # Détail d'une station
+    path(
+        "api/stations/<str:id_station>/",
+        StationMeteoDetailView.as_view(),
+        name="station-detail",
+    ),
+    # --- Données météo quotidiennes ---
+    # Données d'une station (filtres optionnels : ?date_debut=YYYY-MM-DD&date_fin=YYYY-MM-DD)
+    path(
+        "api/stations/<str:id_station>/donnees/",
+        DonneesMeteoListView.as_view(),
+        name="donnees-meteo-list",
+    ),
 ]

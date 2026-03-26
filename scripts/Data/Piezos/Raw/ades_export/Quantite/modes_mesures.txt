@@ -1,0 +1,1 @@
+Identifiant national BSS|Ancien code national BSS|Date début|Date fin|Code mode mesure|Mode mesure|Périodicité mesure|Précision|Code périodicité acquisition|Périodicité acquisition|Commentaires|X_WGS84|Y_WGS84|
