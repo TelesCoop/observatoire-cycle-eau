@@ -1,5 +1,5 @@
 Django==5.2.12
 django-model-utils==5.0.0
-djangorestframework==3.17.1
+djangorestframework==3.18.3
 ipython==8.38.0
-requests==2.33.0
+requests==2.34.2
